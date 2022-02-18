@@ -1,0 +1,5 @@
+Target dependency graph (3 targets)
+Pods-Reciplease in Pods, no dependencies
+Pods-Reciplease-RecipleaseUITests in Pods, no dependencies
+Pods-RecipleaseTests in Pods, depends on:
+Pods-Reciplease in Pods (explicit)
