@@ -15,9 +15,20 @@ class IngredientsTableViewCell: UITableViewCell {
     }
     @IBOutlet weak var ingredientsDetailLabel: UILabel!
     
-    func configure(withIngredient ingredient: String) {
-            ingredientsDetailLabel?.text = "- " + ingredient.localizedCapitalized
-        }
+//    func setIngredients(withIngredient ingredient: String) {
+//        ingredientsDetailLabel.text = ingredient
+//        }
+    
+//    var setIngredients: Ingredient? {
+//        didSet {
+//            guard let imageUrl = URL(string: setRecipe?.recipe.image ?? "recipeImage") else { return }
+//            ingredientsDetailLabel.text = setIngredients?.text
+//            recipe.ingredientLines.joined()
+//            recipeImage.getImage(with: imageUrl)
+//            recipeTitle.text = setRecipe?.recipe.label
+//            recipeSubtitle.text = setRecipe?.recipe.ingredientLines[0]
+//        }
+//    }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)

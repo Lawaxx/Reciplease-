@@ -21,12 +21,6 @@ final class EdamamSession : AlamofireSession {
             completionHandler(dataResponse)
         }
     }
-    
-//    func request(url: URL, completionHandler: @escaping (AFDataResponse<Data>) -> Void) {
-//        AF.request(url).responseDecodable() { dataResponse in
-//            completionHandler(dataResponse)
-//        }
-//    }
     func encode(with baseURL: URL, and parameters: [(String, String)]?) -> URL {
         guard var urlComponents = URLComponents(url: baseURL, resolvingAgainstBaseURL: false),
               let parameters = parameters,

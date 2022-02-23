@@ -53,7 +53,8 @@ class RecipeViewController: UIViewController {
         if ingredientList.isEmpty {
             presentAlert()
         } else {
-            edamamService.getRecipe(ingredientsList: ingredientList.joined(separator: ",")) { result in
+            edamamService.getRecipe(ingredientsList: ingredientList.joined(separator: "+")) { result in
+                DispatchQueue.main.async {
                 switch result {
                     case .success(let response) :
                         self.recipeResponse = response
@@ -62,6 +63,7 @@ class RecipeViewController: UIViewController {
                     case .failure(let error) :
                         self.presentAlert()
                         print(error)
+                   }
                 }
             }
         }

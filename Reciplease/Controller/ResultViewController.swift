@@ -47,6 +47,14 @@ extension ResultViewController: UITableViewDataSource {
 
         return recipeCell
     }
+//    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+//        let lastIndex = recipeResponse?.hits.count
+//            if indexPath.row == lastIndex {
+//                
+//                self.recipeTableView.reloadData()
+//                // api call and get next page
+//            }
+//        }
 }
 
 
@@ -57,7 +65,7 @@ extension ResultViewController: UITableViewDelegate {
         let detail = recipeResponse?.hits[indexPath.row].recipe
 ////         a renvoyer au controller suivant 
 //        
-        recipeData = RecipeData(title: detail?.label ?? "", imageData: detail?.image.data, ingredients: detail?.ingredientLines ?? [], url: detail?.url ?? "", yield: String(detail?.yield ?? 0) , totalTime: String(detail?.totalTime ?? 0))
+        recipeData = RecipeData(title: detail?.label ?? "", imageData: detail?.image?.data, ingredients: detail?.ingredientLines ?? [], url: detail?.url ?? "", yield: String(detail?.yield ?? 0) , totalTime: String(detail?.totalTime ?? 0))
         
         performSegue(withIdentifier: "segueToDetailViewController", sender: self)
     }

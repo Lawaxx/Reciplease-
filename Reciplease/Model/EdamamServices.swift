@@ -29,8 +29,6 @@ class EdamamService  {
         #endif
         session.request(url: url) { responseData in
             
-            DispatchQueue.main.async {
-                
                 guard let data = responseData.data else {
                     completionHandler(.failure(.dataError))
                     return
@@ -46,8 +44,7 @@ class EdamamService  {
                     return
                 }
                 completionHandler(.success(responseJson))
-                print(responseJson)
+//                print(responseJson)
             }
         }
     }
-}

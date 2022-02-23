@@ -55,69 +55,15 @@ enum Title: String, Codable {
 struct Recipe: Decodable {
     let uri: String
     let label: String
-    let image: String
+    let image: String?
     let images: Images
     let source: String
     let url: String
-    let shareAs: String
-    let yield: Int
-    let dietLabels: [DietLabel]
-    let healthLabels: [String]
-    let cautions: [Caution]
+    let yield: Int?
     let ingredientLines: [String]
     let ingredients: [Ingredient]
-    let calories, totalWeight: Double
-    let totalTime: Int
-    let cuisineType: [String]
-    let mealType: [MealType]
-    let dishType: [String]
-    let totalNutrients, totalDaily: [String: Total]
-    let digest: [Digest]
+    let totalTime: Int?
 }
-
-enum Caution: String, Codable {
-    case fodmap = "FODMAP"
-    case soy = "Soy"
-    case sulfites = "Sulfites"
-}
-
-enum DietLabel: String, Codable {
-    case balanced = "Balanced"
-    case highFiber = "High-Fiber"
-    case lowCarb = "Low-Carb"
-}
-
-// MARK: - Digest
-struct Digest: Decodable {
-    let label, tag: String
-    let schemaOrgTag: SchemaOrgTag?
-    let total: Double
-    let hasRDI: Bool
-    let daily: Double
-    let unit: Unit
-    let sub: [Digest]?
-}
-
-enum SchemaOrgTag: String, Codable {
-    case carbohydrateContent = "carbohydrateContent"
-    case cholesterolContent = "cholesterolContent"
-    case fatContent = "fatContent"
-    case fiberContent = "fiberContent"
-    case proteinContent = "proteinContent"
-    case saturatedFatContent = "saturatedFatContent"
-    case sodiumContent = "sodiumContent"
-    case sugarContent = "sugarContent"
-    case transFatContent = "transFatContent"
-}
-
-enum Unit: String, Codable {
-    case empty = "%"
-    case g = "g"
-    case kcal = "kcal"
-    case mg = "mg"
-    case µg = "µg"
-}
-
 // MARK: - Images
 struct Images: Decodable {
     let thumbnail, small, regular: Large
@@ -145,7 +91,7 @@ struct Ingredient: Decodable {
     let food: String
     let weight: Double
     let foodCategory: String?
-    let foodID: String
+    let foodID: String?
     let image: String?
 
     enum CodingKeys: String, CodingKey {
@@ -154,19 +100,6 @@ struct Ingredient: Decodable {
         case image
     }
 }
-
-enum MealType: String, Codable {
-    case brunch = "brunch"
-    case lunchDinner = "lunch/dinner"
-}
-
-// MARK: - Total
-struct Total: Decodable {
-    let label: String
-    let quantity: Double
-    let unit: Unit
-}
-
 // MARK: - WelcomeLinks
 struct WelcomeLinks: Decodable {
     let next: Next
