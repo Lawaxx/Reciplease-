@@ -38,11 +38,22 @@ extension String {
 
   extension UIViewController {
         func presentAlert(){
-            let alertVC = UIAlertController(title: "Erreur", message: "erreur de chargement", preferredStyle: .alert)
+            let alertVC = UIAlertController(title: "Oops", message: "Erreur de chargement", preferredStyle: .alert)
             let action = UIAlertAction(title: "OK", style: .cancel, handler: nil)
             alertVC.addAction(action)
             present(alertVC, animated: true, completion: nil)
         }
+      func presentSafariAlert(){
+          let alertVC = UIAlertController(title: "Oops", message: "Please download safari navigator", preferredStyle: .alert)
+          let action = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+          alertVC.addAction(action)
+          present(alertVC,animated: true,completion: nil)
+      }
+      func presentRecipeAlert(){
+      let alertVC = UIAlertController(title: "Oops", message: "Veuillez ajouter/supprimer un ingredient", preferredStyle: .alert)
+      let action = UIAlertAction(title:"OK", style: .cancel, handler: nil)
+      alertVC.addAction(action)
+      present(alertVC,animated: true, completion: nil)
     }
-
+  }
 

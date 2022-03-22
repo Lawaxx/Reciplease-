@@ -2,8 +2,8 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1RW-oN-75d">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -17,26 +17,29 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.20472121239999999" green="0.1880749464" blue="0.18307939170000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <color key="selectedImageTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="selectedImageTintColor" red="0.20000001789999999" green="0.18823529780000001" blue="0.1843137443" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </tabBar>
                     <connections>
                         <segue destination="tYH-14-bJX" kind="relationship" relationship="viewControllers" id="4KD-dS-XGw"/>
+                        <segue destination="ZoC-Gz-QAr" kind="relationship" relationship="viewControllers" id="XfC-Nn-eyD"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UcM-Oq-dqC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-933" y="-464"/>
+            <point key="canvasLocation" x="-933" y="-448"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="1UQ-qR-6gF">
             <objects>
                 <navigationController id="tYH-14-bJX" userLabel="Navigation Controller" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Search" image="search" id="X0f-hf-3vU"/>
+                    <tabBarItem key="tabBarItem" title="Search" id="X0f-hf-3vU">
+                        <imageReference key="image" image="fork.knife" catalog="system" renderingMode="original"/>
+                    </tabBarItem>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="eNy-Jj-Q2M">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="barTintColor" red="0.20472121239999999" green="0.1880749464" blue="0.18307939170000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" red="0.20000001789999999" green="0.18823529780000001" blue="0.1843137443" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <textAttributes key="titleTextAttributes">
                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="19"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -88,7 +91,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gLX-xj-rgy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1325" y="-948"/>
+            <point key="canvasLocation" x="1949" y="-875"/>
         </scene>
         <!--RecipeViewController-->
         <scene sceneID="pKk-8Q-qfz">
@@ -270,7 +273,69 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-15" y="-11"/>
+            <point key="canvasLocation" x="1010" y="-875"/>
+        </scene>
+        <!--Favori-->
+        <scene sceneID="4Vk-kC-nfe">
+            <objects>
+                <navigationController id="ZoC-Gz-QAr" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Favori" id="UFJ-0q-J8U">
+                        <imageReference key="image" image="star" catalog="system"/>
+                    </tabBarItem>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="3aC-L4-NgN">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.20000001789999999" green="0.18823529780000001" blue="0.1843137443" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Gyo-SR-8jB" kind="relationship" relationship="rootViewController" id="m3H-us-Rvz"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="j0U-zk-i3h" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-14" y="-23"/>
+        </scene>
+        <!--FavoriteViewController-->
+        <scene sceneID="IAo-in-pOT">
+            <objects>
+                <viewController title="FavoriteViewController" id="Gyo-SR-8jB" customClass="FavoriteViewController" customModule="Reciplease" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="YPT-5e-4cr">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="evk-Mr-rCz" userLabel="FavoriteTableView">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <color key="backgroundColor" red="0.19607841970000001" green="0.1843137443" blue="0.18039217590000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="Gyo-SR-8jB" id="7U1-eh-c16"/>
+                                    <outlet property="delegate" destination="Gyo-SR-8jB" id="dSF-qv-eSp"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="1sm-8O-6X8"/>
+                        <constraints>
+                            <constraint firstItem="1sm-8O-6X8" firstAttribute="bottom" secondItem="evk-Mr-rCz" secondAttribute="bottom" id="3UV-ex-Uez"/>
+                            <constraint firstItem="1sm-8O-6X8" firstAttribute="trailing" secondItem="evk-Mr-rCz" secondAttribute="trailing" id="QFW-D0-8aQ"/>
+                            <constraint firstItem="evk-Mr-rCz" firstAttribute="top" secondItem="1sm-8O-6X8" secondAttribute="top" id="ZDT-y2-V1P"/>
+                            <constraint firstItem="evk-Mr-rCz" firstAttribute="leading" secondItem="1sm-8O-6X8" secondAttribute="leading" id="fOd-22-fv2"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Favorite" id="xOF-74-u8G"/>
+                    <connections>
+                        <outlet property="favoriteTableView" destination="evk-Mr-rCz" id="yC7-t7-GxK"/>
+                        <segue destination="erM-uI-QlC" kind="show" identifier="segueToDetailFavoriteViewController" id="p85-ON-Kwt"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Wno-fc-5g3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="895.6521739130435" y="-23.4375"/>
         </scene>
         <!--DetailViewController-->
         <scene sceneID="12p-fB-wOB">
@@ -347,16 +412,31 @@
                                     <outlet property="delegate" destination="erM-uI-QlC" id="aNg-Zx-eM0"/>
                                 </connections>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AV9-Rs-7pr">
+                                <rect key="frame" x="340" y="0.0" width="66" height="20"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lUE-g5-ncy">
+                                <rect key="frame" x="340" y="20" width="66" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="XYV-Nh-77p"/>
                         <color key="backgroundColor" red="0.20472121239999999" green="0.1880749464" blue="0.18307939170000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="SjR-6O-PW2" firstAttribute="top" secondItem="XYV-Nh-77p" secondAttribute="top" id="0Id-wf-Wau"/>
+                            <constraint firstItem="lUE-g5-ncy" firstAttribute="top" secondItem="AV9-Rs-7pr" secondAttribute="bottom" id="NjK-MD-yCa"/>
                             <constraint firstItem="XYV-Nh-77p" firstAttribute="bottom" secondItem="zil-9T-llq" secondAttribute="bottom" constant="5" id="RXI-GI-cgx"/>
                             <constraint firstItem="DMJ-4t-KX7" firstAttribute="leading" secondItem="XYV-Nh-77p" secondAttribute="leading" constant="8" id="Tuf-kZ-Hu0"/>
                             <constraint firstItem="DMJ-4t-KX7" firstAttribute="top" secondItem="LPJ-9P-UQ0" secondAttribute="bottom" constant="5" id="Vem-re-tsJ"/>
+                            <constraint firstItem="AV9-Rs-7pr" firstAttribute="trailing" secondItem="lUE-g5-ncy" secondAttribute="trailing" id="Wj2-IT-IxX"/>
                             <constraint firstItem="SjR-6O-PW2" firstAttribute="leading" secondItem="XYV-Nh-77p" secondAttribute="leading" id="Xrm-2P-zg7"/>
                             <constraint firstItem="XYV-Nh-77p" firstAttribute="trailing" secondItem="LPJ-9P-UQ0" secondAttribute="trailing" constant="8" id="aKW-rv-9Lf"/>
+                            <constraint firstItem="AV9-Rs-7pr" firstAttribute="leading" secondItem="lUE-g5-ncy" secondAttribute="leading" id="bm9-hM-AJR"/>
                             <constraint firstItem="LPJ-9P-UQ0" firstAttribute="top" secondItem="SjR-6O-PW2" secondAttribute="bottom" id="dxR-k1-CL8"/>
                             <constraint firstItem="XYV-Nh-77p" firstAttribute="trailing" secondItem="i1J-de-evO" secondAttribute="trailing" id="gX1-M0-NEX"/>
                             <constraint firstItem="XYV-Nh-77p" firstAttribute="trailing" secondItem="DMJ-4t-KX7" secondAttribute="trailing" constant="8" id="hMw-p6-iDf"/>
@@ -364,13 +444,23 @@
                             <constraint firstItem="LPJ-9P-UQ0" firstAttribute="top" secondItem="i1J-de-evO" secondAttribute="bottom" id="o5l-W8-CXg"/>
                             <constraint firstItem="zil-9T-llq" firstAttribute="top" secondItem="DMJ-4t-KX7" secondAttribute="bottom" constant="5" id="qoa-LA-7Sb"/>
                             <constraint firstItem="i1J-de-evO" firstAttribute="leading" secondItem="XYV-Nh-77p" secondAttribute="leading" id="qsF-mI-rQB"/>
+                            <constraint firstItem="AV9-Rs-7pr" firstAttribute="leading" secondItem="XYV-Nh-77p" secondAttribute="leading" constant="340" id="sTs-e1-1ij"/>
+                            <constraint firstItem="AV9-Rs-7pr" firstAttribute="top" secondItem="SjR-6O-PW2" secondAttribute="top" id="tFf-2x-BM6"/>
                             <constraint firstItem="XYV-Nh-77p" firstAttribute="trailing" secondItem="SjR-6O-PW2" secondAttribute="trailing" id="uaW-hv-0Pf"/>
                             <constraint firstItem="zil-9T-llq" firstAttribute="leading" secondItem="XYV-Nh-77p" secondAttribute="leading" constant="20" id="ulI-Ek-TPy"/>
                             <constraint firstItem="LPJ-9P-UQ0" firstAttribute="leading" secondItem="XYV-Nh-77p" secondAttribute="leading" constant="8" id="wnd-VH-5lC"/>
+                            <constraint firstItem="AV9-Rs-7pr" firstAttribute="trailing" secondItem="LPJ-9P-UQ0" secondAttribute="trailing" id="yTx-yQ-qG4"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Reciplease" id="Q7a-ED-Xda"/>
+                    <navigationItem key="navigationItem" title="Reciplease" id="Q7a-ED-Xda">
+                        <barButtonItem key="rightBarButtonItem" title="Favori" image="star" catalog="system" id="8fU-n0-oZh">
+                            <connections>
+                                <action selector="addToFavorite:" destination="erM-uI-QlC" id="HyR-ge-Bnt"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="addFavoriteButtonBar" destination="8fU-n0-oZh" id="Civ-ns-OpP"/>
                         <outlet property="getDirectionsButton" destination="zil-9T-llq" id="rGg-rQ-PuE"/>
                         <outlet property="gradientView" destination="i1J-de-evO" id="O6x-si-GF1"/>
                         <outlet property="ingredientTableView" destination="DMJ-4t-KX7" id="pM6-g3-c40"/>
@@ -380,11 +470,15 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vey-Eh-4lK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1324.6376811594205" y="-88.392857142857139"/>
+            <point key="canvasLocation" x="2324.6376811594205" y="-77.008928571428569"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="t5m-Pj-7o0"/>
+    </inferredMetricsTieBreakers>
     <resources>
-        <image name="search" width="24" height="24"/>
+        <image name="fork.knife" catalog="system" width="92" height="128"/>
+        <image name="star" catalog="system" width="128" height="116"/>
         <systemColor name="quaternaryLabelColor">
             <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.17999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

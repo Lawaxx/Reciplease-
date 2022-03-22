@@ -10,5 +10,5 @@ import Foundation
 enum APIError: Error {
     case dataError
     case invalidResponse
-    case decodeError
+    case decodeError 
 }

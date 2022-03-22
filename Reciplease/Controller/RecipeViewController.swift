@@ -9,23 +9,23 @@ import UIKit
 
 class RecipeViewController: UIViewController {
     
+    //    MARK: - Properties
+    
     var ingredientList = [String]()
     let edamamService = EdamamService()
     var recipeResponse : EdamamResponse?
     
     
+    //    MARK: - Outlets
     
     @IBOutlet private var ingredientSearchTableView: UITableView!
     @IBOutlet private var ingredientTextField: UITextField!
     @IBOutlet private var searchButton: UIButton!
     
+    //    MARK: - Actions
+    
     @IBAction func dismissedKeyboard(_ sender: UITapGestureRecognizer) {
         ingredientTextField.resignFirstResponder()
-    }
-    
-    override func viewDidLoad(){
-//        self.tableView.register(UITableViewCell.self, forCellWithReuseIdentifier: "cell")
-        super.viewDidLoad()
     }
     
     @IBAction func clearIngredientsButton(_ sender: UIButton) {
@@ -49,29 +49,41 @@ class RecipeViewController: UIViewController {
         print(ingredientList)
     }
     
+    //   MARK: - Methods
+    
+    override func viewDidLoad(){
+        //        self.tableView.register(UITableViewCell.self, forCellWithReuseIdentifier: "cell")
+        super.viewDidLoad()
+    }
+    
     private func makeAPICall() {
         if ingredientList.isEmpty {
             presentAlert()
         } else {
             edamamService.getRecipe(ingredientsList: ingredientList.joined(separator: "+")) { result in
                 DispatchQueue.main.async {
-                switch result {
-                    case .success(let response) :
-                        self.recipeResponse = response
-                        self.performSegue(withIdentifier: "segueToResultViewController", sender: nil)
-                        print(response)
-                    case .failure(let error) :
-                        self.presentAlert()
-                        print(error)
-                   }
+                    switch result {
+                        case .success(let response) :
+                            self.recipeResponse = response
+                            self.performSegue(withIdentifier: "segueToResultViewController", sender: nil)
+                            print(response)
+                        case .failure(let error) :
+                            if error == .decodeError {
+                                self.presentRecipeAlert()
+                            } else {
+                                self.presentAlert()
+                                print(error)
+                            }
+                    
+                    }
                 }
             }
         }
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-            guard let recipesList = segue.destination as? ResultViewController else { return }
+        guard let recipesList = segue.destination as? ResultViewController else { return }
         recipesList.recipeResponse = recipeResponse!
-        }
+    }
 }
 
 // MARK:  - UITABLEVIEW DATA SOURCE

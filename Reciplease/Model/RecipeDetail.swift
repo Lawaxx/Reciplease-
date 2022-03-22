@@ -2,12 +2,12 @@
 //  RecipeData.swift
 //  Reciplease
 //
-//  Created by Aurelien Waxin on 08/02/2022.
+//  Created by Aurelien Waxin on 10/03/2022.
 //
 
 import Foundation
 
-struct RecipeData {
+struct RecipeDetail {
     let title: String
     let imageData: Data?
     let ingredients: [String]
