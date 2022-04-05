@@ -27,12 +27,12 @@ class RecipeTableViewCell: UITableViewCell {
     }
     var setRecipe: Hit? {
         didSet {
-            guard let imageUrl = URL(string: setRecipe?.recipe.image ?? "recipeImage") else { return }
+            guard let imageUrl = URL(string: setRecipe?.recipe?.image ?? "recipeImage") else { return }
             recipeImage.getImage(with: imageUrl)
-            recipeTitle.text = setRecipe?.recipe.label
-            recipeSubtitle.text = setRecipe?.recipe.ingredientLines[0]
-            recipeTotalTimeLabel.text = setRecipe?.recipe.totalTime?.formatted()
-            recipeYieldLabel.text = setRecipe?.recipe.yield?.formatted()
+            recipeTitle.text = setRecipe?.recipe?.label
+            recipeSubtitle.text = setRecipe?.recipe?.ingredientLines?[0]
+            recipeTotalTimeLabel.text = setRecipe?.recipe?.totalTime?.formatted()
+            recipeYieldLabel.text = setRecipe?.recipe?.yield?.formatted()
         }
     }
     var setFavorite: RecipeEntity? {

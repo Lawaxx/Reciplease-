@@ -27,7 +27,8 @@ final class DetailViewController: UIViewController {
     @IBOutlet weak var ingredientTableView: UITableView!
     @IBOutlet weak var getDirectionsButton: UIButton!
     @IBOutlet weak var addFavoriteButtonBar: UIBarButtonItem!
-    
+    @IBOutlet weak var yieldLabel: UILabel!
+    @IBOutlet weak var totalTimeLabel: UILabel!
     
     //    MARK: - Methods
     
@@ -49,6 +50,8 @@ final class DetailViewController: UIViewController {
         guard let image = recipeDetail?.imageData else { return }
         recipeImageView.image = UIImage(data: image)
         titleLabel.text = recipeDetail?.title
+        yieldLabel.text = recipeDetail?.yield
+        totalTimeLabel.text = recipeDetail?.totalTime
         
     }
     

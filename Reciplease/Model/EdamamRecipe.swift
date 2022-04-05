@@ -8,9 +8,9 @@
 import Foundation
 
 // MARK: - Welcome
-struct EdamamResponse: Decodable {
-    let from, to, count: Int
-    let hits: [Hit]
+struct EdamamResponse: Codable {
+    let from, to, count: Int?
+    let hits: [Hit]?
 
     enum CodingKeys: String, CodingKey {
         case from, to, count
@@ -19,52 +19,43 @@ struct EdamamResponse: Decodable {
 }
 
 // MARK: - Hit
-struct Hit: Decodable {
-    let recipe: Recipe
+struct Hit: Codable {
+    let recipe: Recipe?
 
     enum CodingKeys: String, CodingKey {
         case recipe
     }
 }
+
+// MARK: - Next
+struct Next: Codable {
+    let href: String?
+    let title: Title?
+}
+
+enum Title: String, Codable {
+    case nextPage = "Next page"
+    case titleSelf = "Self"
+}
+
 // MARK: - Recipe
-struct Recipe: Decodable {
-    let uri: String
-    let label: String
+struct Recipe: Codable {
+    let label: String?
     let image: String?
-    let images: Images
-    let source: String
-    let url: String
+    let url: String?
     let yield: Int?
-    let ingredientLines: [String]
-    let ingredients: [Ingredient]
+    let ingredientLines: [String]?
+    let ingredients: [Ingredient]?
     let totalTime: Int?
-}
-// MARK: - Images
-struct Images: Decodable {
-    let thumbnail, small, regular: Large
-    let large: Large?
-
-    enum CodingKeys: String, CodingKey {
-        case thumbnail = "THUMBNAIL"
-        case small = "SMALL"
-        case regular = "REGULAR"
-        case large = "LARGE"
-    }
-}
-
-// MARK: - Large
-struct Large: Decodable {
-    let url: String
-    let width, height: Int
 }
 
 // MARK: - Ingredient
-struct Ingredient: Decodable {
-    let text: String
-    let quantity: Double
+struct Ingredient: Codable {
+    let text: String?
+    let quantity: Double?
     let measure: String?
-    let food: String
-    let weight: Double
+    let food: String?
+    let weight: Double?
     let foodCategory: String?
     let foodID: String?
     let image: String?
