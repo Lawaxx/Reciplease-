@@ -9,8 +9,8 @@ import Foundation
 
 
 class FakeResponseData {
-    static let url: URL = URL(string: "https://api.edamam.com/api/recipes/v2?")!
-    static let responseOK = HTTPURLResponse(url: URL(string: "https://api.edamam.com/api/recipes/v2?")!, statusCode: 200, httpVersion: nil, headerFields: nil)!
+    static let url: URL = URL(string: "https://api.edamam.com/api/recipes/v2?q=chicken")!
+    static let responseOK = HTTPURLResponse(url: URL(string: "https://api.edamam.com/api/recipes/v2?q=chicken")!, statusCode: 200, httpVersion: nil, headerFields: nil)!
     static let responseKO = HTTPURLResponse(url: URL(string: "https://networkcalc.com/api/binary/1101111")!, statusCode: 500, httpVersion: nil, headerFields: nil)!
 
     class NetworkError: Error {}

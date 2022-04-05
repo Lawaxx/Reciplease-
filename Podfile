@@ -6,7 +6,7 @@ target 'Reciplease' do
   use_frameworks!
 
   # Pods for Reciplease
-  pod 'Alamofire', '5.5'
+  pod 'Alamofire', '5.2'
 
   target 'RecipleaseTests' do
     inherit! :search_paths

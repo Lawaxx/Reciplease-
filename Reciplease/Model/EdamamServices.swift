@@ -11,7 +11,7 @@ import Alamofire
 class EdamamService  {
     
     static var shared = EdamamService()
-//    private let session: URLSession
+    
     private let edamamUrl = "https://api.edamam.com/api/recipes/v2"
     
     private let session : AlamofireSession
